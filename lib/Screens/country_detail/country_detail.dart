@@ -9,11 +9,7 @@ import 'package:sizer/sizer.dart';
 import '../../utils/color_constant.dart';
 
 class CountryDetailPage extends GetView<CountryListController> {
-  // final _historyController = Get.find<CountryListController>();
-  // final CountryListController _historyController = Get.put(CountryListController());
-
   final NumberFormat areaFormat = NumberFormat('###,###,###,###.#', 'en_US');
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -126,7 +122,6 @@ class CountryDetailPage extends GetView<CountryListController> {
                 Icons.people,
               ),
             ),   marginTop(),
-
 
             allTextViews(
               "Region:",
