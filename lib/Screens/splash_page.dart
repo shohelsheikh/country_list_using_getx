@@ -6,9 +6,6 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../routes/app_routes.dart';
-import '../utils/AppConstants.dart';
-
-import '../utils/asset_helper.dart';
 import '../widgets/button/app_button.dart';
 
 class SplashPage extends StatefulWidget {

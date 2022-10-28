@@ -1,6 +1,6 @@
 # country_list_case_study
 
-A new Flutter project.
+This project contains a country list with search functionality and detailing of selected country.This project contains the getx state management pattern.
 
 ## Getting Started
 
