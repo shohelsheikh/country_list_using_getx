@@ -10,162 +10,184 @@ import '../../utils/color_constant.dart';
 
 class CountryDetailPage extends GetView<CountryListController> {
   final NumberFormat areaFormat = NumberFormat('###,###,###,###.#', 'en_US');
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            InkWell(
-              highlightColor: Colors.transparent,
-              splashColor: Colors.transparent,
-              onTap: () {
-                Navigator.of(context).pop();
-              },
-              child: SizedBox(
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            Text(
-              Get.find<CountryListController>()
-                      .countryListNew[
-                          Get.find<CountryListController>().clickIndex.value]
-                      .name
-                      ?.common ??
-                  "",
-              style:   TextStyle(
-                  fontSize: 15.sp,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              width: 16,
-            ),
-          ],
-        ),
-      ),
+      appBar: appBarWidget(context),
       body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(height: 20),
-            Image.network(Get.find<CountryListController>()
-                    .countryListNew[
-                        Get.find<CountryListController>().clickIndex.value]
-                    .flags
-                    ?.png ??
-                "", errorBuilder: (context, url, error) {
-              // return new Icon(Icons.error);
-              return new Image.asset("assets/images/noimage.png",height: 20.h);
-            },),
-            marginTop(),
-
-            allTextViews(
-              "Official Name:",
-              Get.find<CountryListController>()
-                      .countryListNew[
-                          Get.find<CountryListController>().clickIndex.value]
-                      .name
-                      ?.official ??
-                  "",
-              Icon(
-                Icons.home,
-              ),
-            ),
-            marginTop(),
-
-            allTextViews(
-              "Capital:",
-              Get.find<CountryListController>()
-                      .countryListNew[
-                          Get.find<CountryListController>().clickIndex.value]
-                      .capital ??
-                  "",
-              Icon(
-                Icons.flag,
-              ),
-            ),
-
-            marginTop(),
-
-
-            allTextViews(
-              "Continent:",
-              Get.find<CountryListController>()
-                      .countryListNew[
-                          Get.find<CountryListController>().clickIndex.value]
-                      .continents ??
-                  "",
-              Icon(
-                Icons.flag,
-              ),
-            ),
-
-            marginTop(),
-
-
-            allTextViews(
-              "Population:",
-              Get.find<CountryListController>()
-                      .countryListNew[
-                          Get.find<CountryListController>().clickIndex.value].population.toString()??"",
-              Icon(
-                Icons.people,
-              ),
-            ),   marginTop(),
-
-            allTextViews(
-              "Region:",
-              Get.find<CountryListController>()
-                      .countryListNew[
-                          Get.find<CountryListController>().clickIndex.value]
-                      .region  ??
-                  "",
-              Icon(
-                Icons.people,
-              ),
-            ), marginTop(),
-
-
-            allTextViews(
-              "Sub Region:",
-              Get.find<CountryListController>()
-                      .countryListNew[
-                          Get.find<CountryListController>().clickIndex.value]
-                      .subregion ??
-                  "",
-              Icon(
-                Icons.people,
-              ),
-            ),
-            marginTop(),
-            allTextViews(
-              "Area:",
-                '${areaFormat.format(Get.find<CountryListController>()
-                    .countryListNew[
-                Get.find<CountryListController>().clickIndex.value]
-                    .area??
-                    "")} km\u{00B2}'
-              ,
-              Icon(
-                Icons.area_chart,
-              ),
-            ),
-          ],
-        ),
+        child: countryDetails(),
       ),
     );
   }
 
+
+  // App Bar
+  appBarWidget(BuildContext context) {
+    return AppBar(
+      backgroundColor: Theme
+          .of(context)
+          .scaffoldBackgroundColor,
+      automaticallyImplyLeading: false,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          InkWell(
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            onTap: () {
+              Navigator.of(context).pop();
+            },
+            child: SizedBox(
+              child: Icon(
+                Icons.arrow_back_ios,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          Text(
+            Get
+                .find<CountryListController>()
+                .countryListNew[
+            Get
+                .find<CountryListController>()
+                .clickIndex
+                .value]
+                .name
+                ?.common ??
+                "",
+            style: TextStyle(
+                fontSize: 15.sp,
+                color: Colors.black,
+                fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            width: 16,
+          ),
+        ],
+      ),
+    );
+  }
+
+  // country detail
+Widget countryDetails()
+{
+  return Column(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+
+        SizedBox(height: 20),
+        Image.network(Get.find<CountryListController>()
+            .countryListNew[
+        Get.find<CountryListController>().clickIndex.value]
+            .flags
+            ?.png ??
+            "", errorBuilder: (context, url, error) {
+          // return new Icon(Icons.error);
+          return new Image.asset("assets/images/noimage.png",height: 20.h);
+        },),
+        marginTop(),
+        allTextViews(
+          "Official Name:",
+          Get.find<CountryListController>()
+              .countryListNew[
+          Get.find<CountryListController>().clickIndex.value]
+              .name
+              ?.official ??
+              "",
+          Icon(
+            Icons.home,
+          ),
+        ),
+        marginTop(),
+
+        allTextViews(
+          "Capital:",
+          Get.find<CountryListController>()
+              .countryListNew[
+          Get.find<CountryListController>().clickIndex.value]
+              .capital ??
+              "",
+          Icon(
+            Icons.flag,
+          ),
+        ),
+
+        marginTop(),
+
+
+        allTextViews(
+          "Continent:",
+          Get.find<CountryListController>()
+              .countryListNew[
+          Get.find<CountryListController>().clickIndex.value]
+              .continents ??
+              "",
+          Icon(
+            Icons.flag,
+          ),
+        ),
+
+        marginTop(),
+
+
+        allTextViews(
+          "Population:",
+          Get.find<CountryListController>()
+              .countryListNew[
+          Get.find<CountryListController>().clickIndex.value].population.toString()??"",
+          Icon(
+            Icons.people,
+          ),
+        ),   marginTop(),
+
+        allTextViews(
+          "Region:",
+          Get.find<CountryListController>()
+              .countryListNew[
+          Get.find<CountryListController>().clickIndex.value]
+              .region  ??
+              "",
+          Icon(
+            Icons.people,
+          ),
+        ), marginTop(),
+
+
+        allTextViews(
+          "Sub Region:",
+          Get.find<CountryListController>()
+              .countryListNew[
+          Get.find<CountryListController>().clickIndex.value]
+              .subregion ??
+              "",
+          Icon(
+            Icons.people,
+          ),
+        ),
+        marginTop(),
+        allTextViews(
+          "Area:",
+          '${areaFormat.format(Get.find<CountryListController>()
+              .countryListNew[
+          Get.find<CountryListController>().clickIndex.value]
+              .area??
+              "")} km\u{00B2}'
+          ,
+          Icon(
+            Icons.area_chart,
+          ),
+        )
+
+
+        ]);
+}
+
+
+// all text view
   Widget allTextViews(String title, String content, Icon icon) {
     return Container(
       margin: 30.marginLeftRightTopBottom(),
@@ -182,7 +204,7 @@ class CountryDetailPage extends GetView<CountryListController> {
             flex: 1,
             child: Text(
               title,
-              style:   TextStyle(
+              style: TextStyle(
                 fontSize: 11.sp,
                 fontWeight: FontWeight.w600,
                 color: Colors.black,
@@ -194,7 +216,7 @@ class CountryDetailPage extends GetView<CountryListController> {
             flex: 2,
             child: Text(
               content,
-              style:   TextStyle(
+              style: TextStyle(
                 fontSize: 12.sp,
                 fontWeight: FontWeight.w600,
                 color: ColorConstant.colorApp,
@@ -207,9 +229,14 @@ class CountryDetailPage extends GetView<CountryListController> {
     );
   }
 
+  // margin top
   Widget marginTop() {
     return Container(
       margin: EdgeInsets.only(top: 2.h),
     );
   }
+
+
+
+
 }

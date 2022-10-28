@@ -9,13 +9,14 @@ import '../../utils/color_constant.dart';
 import 'package:get/get.dart';
 
 class CountryListPage extends GetView<CountryListController> {
-  final CountryListController _countryListController =Get.find<CountryListController>();
+  final CountryListController _countryListController =
+      Get.find<CountryListController>();
 
   @override
   Widget build(BuildContext context) {
     _countryListController.CountryListControllerInitializer(context);
     return Scaffold(
-        appBar: appBarWidget(),
+        appBar: appBarWidget(context),
         body: Obx(() {
           return Stack(
             alignment: AlignmentDirectional.topCenter,
@@ -29,8 +30,9 @@ class CountryListPage extends GetView<CountryListController> {
   }
 
   // App Bar
-  appBarWidget() {
+  appBarWidget(BuildContext context) {
     return AppBar(
+      backgroundColor: ColorConstant.colorWhite,
       automaticallyImplyLeading: false,
       centerTitle: true,
       title: Row(
@@ -40,7 +42,7 @@ class CountryListPage extends GetView<CountryListController> {
             highlightColor: Colors.transparent,
             splashColor: Colors.transparent,
             onTap: () {
-              // Navigator.of(context).pop();
+              Navigator.of(context).pop();
             },
             child: SizedBox(
               child: Icon(
@@ -79,23 +81,22 @@ class CountryListPage extends GetView<CountryListController> {
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
           contentPadding:
-          const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+              const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
           focusedBorder: OutlineInputBorder(
             borderSide:
-            BorderSide(color: ColorConstant.searcbBarcolor, width: 2.0),
+                BorderSide(color: ColorConstant.searcbBarcolor, width: 2.0),
           ),
           enabledBorder: OutlineInputBorder(
             borderSide:
-            BorderSide(color: ColorConstant.searcbBarcolor, width: 2.0),
+                BorderSide(color: ColorConstant.searcbBarcolor, width: 2.0),
           ),
           border:
-          UnderlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
+              UnderlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
           hintText: 'Search Country...',
         ),
       ),
     );
   }
-
 
   // Country Listview
   Widget countryListView() {
@@ -188,7 +189,4 @@ class CountryListPage extends GetView<CountryListController> {
       ),
     );
   }
-
-
-
 }
