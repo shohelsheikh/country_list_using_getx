@@ -19,6 +19,7 @@ class CountryListController extends GetxController {
 
   var countryListNew = <CountryListResponse>[].obs; // it store the country list data for showing in listview
   var countryList = <CountryListResponse>[].obs; // this is extra list maintained for searching purporse in country
+
   var STATE_NO_DATA_AVAIL = false.obs;
   var LIST_STATE = "".obs; // this is used for showing the state with message to the screen.
 
@@ -44,27 +45,15 @@ class CountryListController extends GetxController {
     var result = _hiveDBController.read(TableConstant.tableCountries);
     if(result != null) {
 
-      // var jsonList = jsonDecode(result) as List;
-
       for (var element in result) {
         countryList.add(CountryListResponse.fromJson(element));
         countryListNew.add(CountryListResponse.fromJson(element));
       }
       STATE_NO_DATA_AVAIL.value=true;
-
-
-      // CountryListResponse response = CountryListResponse.fromJson(result);
-      //
-      // List<CountryListResponse>  result1=response as List<CountryListResponse>;
-      // STATE_NO_DATA_AVAIL.value=true;
-      // countryList.value.addAll(result1);
-      // countryListNew.addAll(countryList);
-      // LIST_STATE.value = "";
     }
     else{
       all_country_list_web_api(_controllerContext); // calling  country api when controller is ready..
     }
-
   }
 
   @override
@@ -79,7 +68,6 @@ class CountryListController extends GetxController {
     List<CountryListResponse>  result =   await countryListRepo.all_country_list_web();
     disposeProgress();
     if (result.isNotEmpty) {
-      print("");
       countryList.value.clear();
       countryListNew.value.clear();
 
@@ -90,15 +78,12 @@ class CountryListController extends GetxController {
 
       // store in local db..
       _hiveDBController.save(TableConstant.tableCountries, result);
-
-
     } else {
       STATE_NO_DATA_AVAIL.value=false;
       LIST_STATE.value = "Failed to load countries.";
       "Failed to load countries.".toastError();
     }
   }
-
 // this is used for searching the country with name
   void filterSearchResults(String query) {
     STATE_NO_DATA_AVAIL.value=false;
@@ -120,8 +105,4 @@ class CountryListController extends GetxController {
       STATE_NO_DATA_AVAIL.value=true;
     }
   }
-
-
-
-
 }
