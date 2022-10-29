@@ -65,7 +65,7 @@ class CountryListController extends GetxController {
 
     launchProgress(ctx: context);
 
-    List<CountryListResponse>  result =   await countryListRepo.all_country_list_web();
+    List<CountryListResponse>  result =   await CountryListRepo.all_country_list_web();
     disposeProgress();
     if (result.isNotEmpty) {
       countryList.value.clear();

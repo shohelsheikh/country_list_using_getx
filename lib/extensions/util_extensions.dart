@@ -17,11 +17,8 @@ extension Utility on String {
 }
 
 extension Integer on int {
-  delay(Function function) {
-    Future.delayed(Duration(seconds: this), () {
-      function();
-    });
-  }
+
+
 
   marginLeftRightTopBottom({int? top, int? bottom}) {
     return EdgeInsets.only(

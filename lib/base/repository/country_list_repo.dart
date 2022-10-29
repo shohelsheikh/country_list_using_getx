@@ -8,11 +8,9 @@ class CountryListRepo {
   final apiHitter = ApiHitter();
 
   // fetched country list using dio
-  Future<List<CountryListResponse>> all_country_list_web() async {
-
+  static Future<List<CountryListResponse>> all_country_list_web() async {
     List<CountryListResponse> _countryList = [];
-
-    var response = await apiHitter.getApiResponse(
+    var response = await ApiHitter.getApiResponse(
       ApiEndPoint.all_country_list,
       baseUrl: ApiEndPoint.baseUrl,
     );
@@ -28,7 +26,7 @@ class CountryListRepo {
   }
 
   // fetched country list using http
-  Future<List<CountryListResponse>> getCountries() async {
+  static Future<List<CountryListResponse>> getCountries() async {
     List<CountryListResponse> _countryList = [];
 
     final response = await http

@@ -11,17 +11,21 @@ class HiveDBController extends GetxController {
 
   @override
   void onInit() async {
+
+    // initialize the hive local database
     box = await HiveUtil.openBox(TableConstant.localDB);
     super.onInit();
   }
 
   read(String key) {
+    // for getting the table data
     final value = box.get(key);
     if (value != null) return json.decode(value);
     return null;
   }
 
   save(String key, value) async {
+    // for storing in table
     try {
       await box.put(key, json.encode(value));
     } catch (e) {
@@ -29,11 +33,4 @@ class HiveDBController extends GetxController {
     }
   }
 
-  deleteBox(String key) async {
-    await box.delete(key);
-  }
-
-  clearBox() async {
-    await box.clear();
-  }
 }

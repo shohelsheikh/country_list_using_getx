@@ -6,8 +6,13 @@ import '../bindings/country_list_binding.dart';
 import 'app_routes.dart';
 
 class AppPages {
+
+  // created pages
+
   static final pages = [
+
     GetPage(name: AppRoutes.SPLASH_SCREEN, page: () => const SplashPage()),
+
     GetPage(
         name: AppRoutes.HistoryPage,
         page: () => CountryListPage(),

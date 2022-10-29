@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../controller/country_list_controller.dart';
+import '../../utils/asset_helper.dart';
 import '../../utils/color_constant.dart';
 
 import 'package:get/get.dart';
@@ -151,7 +152,7 @@ class CountryListPage extends GetView<CountryListController> {
                 image ?? "",
                 errorBuilder: (context, url, error) {
                   // return new Icon(Icons.error);
-                  return new Image.asset("assets/images/noimage.png");
+                  return new Image.asset(AssetHelper.noimage);
                 },
               ),
             ),

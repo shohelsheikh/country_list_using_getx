@@ -2,6 +2,9 @@
 
 This project contains a country list with search functionality and detailing of selected country.This project contains the getx state management pattern.
 
+Also this contains unit test case for list.
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

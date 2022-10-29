@@ -10,7 +10,7 @@ class ApiHitter {
 
   // ----------------- ------------ Dio Request Call ----------------------------
 
-  Dio? getDio({String baseUrl = ''}) {
+ static Dio? getDio({String baseUrl = ''}) {
     if (_dio == null) {
       BaseOptions options = BaseOptions(
         baseUrl: baseUrl.isEmpty ? ApiEndPoint.baseUrl : baseUrl,
@@ -46,7 +46,7 @@ class ApiHitter {
 
   // --------------------------------- Get API ---------------------------------
 
-  Future<ApiResponse> getApiResponse(String endPoint, {
+  static Future<ApiResponse> getApiResponse(String endPoint, {
     Map<String, dynamic>? headers,
     Map<String, dynamic>? queryParameters,
     String baseUrl = '',
@@ -84,7 +84,7 @@ class ApiHitter {
       );
     }
   }
-  exception(error) {
+  static exception(error) {
     try {
       debugPrint("response  get in exception " + error.toString());
       return ApiResponse(

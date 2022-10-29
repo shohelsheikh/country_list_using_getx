@@ -6,10 +6,13 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../utils/asset_helper.dart';
 import '../../utils/color_constant.dart';
+import '../../widgets/all_text_view.dart';
 
 class CountryDetailPage extends GetView<CountryListController> {
-  final NumberFormat areaFormat = NumberFormat('###,###,###,###.#', 'en_US');
+
+  final NumberFormat areaFormat = NumberFormat('###,###,###,###.#', 'en_US'); // for format the area.
 
   @override
   Widget build(BuildContext context) {
@@ -87,10 +90,10 @@ Widget countryDetails()
             ?.png ??
             "", errorBuilder: (context, url, error) {
           // return new Icon(Icons.error);
-          return new Image.asset("assets/images/noimage.png",height: 20.h);
+          return new Image.asset(AssetHelper.noimage,height: 20.h);
         },),
         marginTop(),
-        allTextViews(
+        AllCommonTextView(
           "Official Name:",
           Get.find<CountryListController>()
               .countryListNew[
@@ -104,7 +107,7 @@ Widget countryDetails()
         ),
         marginTop(),
 
-        allTextViews(
+        AllCommonTextView(
           "Capital:",
           Get.find<CountryListController>()
               .countryListNew[
@@ -119,7 +122,7 @@ Widget countryDetails()
         marginTop(),
 
 
-        allTextViews(
+        AllCommonTextView(
           "Continent:",
           Get.find<CountryListController>()
               .countryListNew[
@@ -133,8 +136,7 @@ Widget countryDetails()
 
         marginTop(),
 
-
-        allTextViews(
+        AllCommonTextView(
           "Population:",
           Get.find<CountryListController>()
               .countryListNew[
@@ -144,7 +146,7 @@ Widget countryDetails()
           ),
         ),   marginTop(),
 
-        allTextViews(
+        AllCommonTextView(
           "Region:",
           Get.find<CountryListController>()
               .countryListNew[
@@ -157,7 +159,7 @@ Widget countryDetails()
         ), marginTop(),
 
 
-        allTextViews(
+        AllCommonTextView(
           "Sub Region:",
           Get.find<CountryListController>()
               .countryListNew[
@@ -169,7 +171,7 @@ Widget countryDetails()
           ),
         ),
         marginTop(),
-        allTextViews(
+        AllCommonTextView(
           "Area:",
           '${areaFormat.format(Get.find<CountryListController>()
               .countryListNew[
@@ -182,52 +184,8 @@ Widget countryDetails()
           ),
         )
 
-
         ]);
 }
-
-
-// all text view
-  Widget allTextViews(String title, String content, Icon icon) {
-    return Container(
-      margin: 30.marginLeftRightTopBottom(),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Icon(
-            icon.icon,
-            color: ColorConstant.colorApp,
-            size: 30.0,
-          ),
-          SizedBox(width: 1.w),
-          Expanded(
-            flex: 1,
-            child: Text(
-              title,
-              style: TextStyle(
-                fontSize: 11.sp,
-                fontWeight: FontWeight.w600,
-                color: Colors.black,
-              ),
-              textAlign: TextAlign.start,
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Text(
-              content,
-              style: TextStyle(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w600,
-                color: ColorConstant.colorApp,
-              ),
-              textAlign: TextAlign.start,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 
   // margin top
   Widget marginTop() {
