@@ -187,6 +187,51 @@ Widget countryDetails()
         ]);
 }
 
+
+/*
+// all text view
+  Widget AllCommonTextView(String title, String content, Icon icon) {
+    return Container(
+      margin: 30.marginLeftRightTopBottom(),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Icon(
+            icon.icon,
+            color: ColorConstant.colorApp,
+            size: 30.0,
+          ),
+          SizedBox(width: 1.w),
+          Expanded(
+            flex: 1,
+            child: Text(
+              title,
+              style: TextStyle(
+                fontSize: 11.sp,
+                fontWeight: FontWeight.w600,
+                color: Colors.black,
+              ),
+              textAlign: TextAlign.start,
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Text(
+              content,
+              style: TextStyle(
+                fontSize: 12.sp,
+                fontWeight: FontWeight.w600,
+                color: ColorConstant.colorApp,
+              ),
+              textAlign: TextAlign.start,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+*/
+
   // margin top
   Widget marginTop() {
     return Container(
