@@ -8,8 +8,7 @@ import 'package:country_list_case_study/utils/util.dart';
 class ApiHitter {
   static Dio? _dio;
 
-  // ----------------- ------------ Dio Request Call ----------------------------
-
+  // Dio Request Call
  static Dio? getDio({String baseUrl = ''}) {
     if (_dio == null) {
       BaseOptions options = BaseOptions(
@@ -44,8 +43,7 @@ class ApiHitter {
     }
   }
 
-  // --------------------------------- Get API ---------------------------------
-
+  // Get API
   static Future<ApiResponse> getApiResponse(String endPoint, {
     Map<String, dynamic>? headers,
     Map<String, dynamic>? queryParameters,
@@ -84,6 +82,8 @@ class ApiHitter {
       );
     }
   }
+
+  // added exceptions
   static exception(error) {
     try {
       debugPrint("response  get in exception " + error.toString());

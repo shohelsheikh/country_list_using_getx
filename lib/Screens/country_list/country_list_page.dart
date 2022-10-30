@@ -8,8 +8,10 @@ import '../../utils/asset_helper.dart';
 import '../../utils/color_constant.dart';
 
 import 'package:get/get.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class CountryListPage extends GetView<CountryListController> {
+  // Added country list controller for getting data from it.
   final CountryListController _countryListController =
       Get.find<CountryListController>();
 
@@ -139,7 +141,6 @@ class CountryListPage extends GetView<CountryListController> {
     return InkWell(
       onTap: () {
         _countryListController.clickIndex.value = index;
-
         Get.toNamed(AppRoutes.CountryDetailPage);
       },
       child: Container(
@@ -148,12 +149,12 @@ class CountryListPage extends GetView<CountryListController> {
           children: [
             Expanded(
               flex: 2,
-              child: Image.network(
-                image ?? "",
-                errorBuilder: (context, url, error) {
-                  // return new Icon(Icons.error);
-                  return new Image.asset(AssetHelper.noimage);
-                },
+              child: CachedNetworkImage(
+                imageUrl: image ?? "",
+                placeholder: (context, url) =>
+                    Center(child: CircularProgressIndicator()),
+                errorWidget: (context, url, error) =>
+                    new Image.asset(AssetHelper.noimage),
               ),
             ),
             SizedBox(width: 10),

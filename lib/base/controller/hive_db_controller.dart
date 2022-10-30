@@ -7,11 +7,11 @@ import 'package:country_list_case_study/base/database/hive_utils.dart';
 import 'package:country_list_case_study/base/database/table_constant.dart';
 
 class HiveDBController extends GetxController {
+
   late Box box;
 
   @override
   void onInit() async {
-
     // initialize the hive local database
     box = await HiveUtil.openBox(TableConstant.localDB);
     super.onInit();

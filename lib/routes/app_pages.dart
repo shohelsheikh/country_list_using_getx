@@ -14,7 +14,7 @@ class AppPages {
     GetPage(name: AppRoutes.SPLASH_SCREEN, page: () => const SplashPage()),
 
     GetPage(
-        name: AppRoutes.HistoryPage,
+        name: AppRoutes.CountryListPage,
         page: () => CountryListPage(),
         binding: CountryListBinding()),
 

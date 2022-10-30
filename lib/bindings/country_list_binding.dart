@@ -5,7 +5,6 @@ class CountryListBinding implements Bindings {
   // we have used binding for dependency injections in this app.
   @override
   void dependencies() {
-
     Get.lazyPut<CountryListController>(() {
       return CountryListController();
     });

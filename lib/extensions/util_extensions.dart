@@ -18,8 +18,6 @@ extension Utility on String {
 
 extension Integer on int {
 
-
-
   marginLeftRightTopBottom({int? top, int? bottom}) {
     return EdgeInsets.only(
       left: toDouble(),

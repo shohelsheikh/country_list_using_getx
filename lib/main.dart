@@ -11,9 +11,8 @@ import 'base/controller/hive_db_controller.dart';
 GlobalKey<NavigatorState> globalKey = GlobalKey();
 
 Future<void> main() async {
-  // initialize
   WidgetsFlutterBinding.ensureInitialized();
-  Get.put(HiveDBController());
+  Get.put(HiveDBController());   // calls the controller of hive db
   runApp(const MyApp());
 }
 
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   // for responsive app
+   // for responsive app we have used sizer.
     return Sizer(builder: (context, orientation, deviceType) {
       return GetMaterialApp(
           navigatorKey: globalKey,

@@ -10,6 +10,7 @@ import '../utils/util.dart';
 
 class CountryListController extends GetxController {
 
+
   var countryListRepo = CountryListRepo();
   final HiveDBController _hiveDBController = Get.find();
 
@@ -42,9 +43,10 @@ class CountryListController extends GetxController {
   @override
   Future<void> onReady() async {
 
+    // read the table data if exist
     var result = _hiveDBController.read(TableConstant.tableCountries);
     if(result != null) {
-
+      // if data exist in table then fetch from it
       for (var element in result) {
         countryList.add(CountryListResponse.fromJson(element));
         countryListNew.add(CountryListResponse.fromJson(element));
@@ -52,6 +54,7 @@ class CountryListController extends GetxController {
       STATE_NO_DATA_AVAIL.value=true;
     }
     else{
+      // else fetch from api
       all_country_list_web_api(_controllerContext); // calling  country api when controller is ready..
     }
   }

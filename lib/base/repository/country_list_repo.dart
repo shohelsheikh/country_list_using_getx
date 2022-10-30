@@ -5,6 +5,7 @@ import '../network/api_endpoint.dart';
 import 'package:http/http.dart' as http;
 
 class CountryListRepo {
+
   final apiHitter = ApiHitter();
 
   // fetched country list using dio
@@ -21,7 +22,7 @@ class CountryListRepo {
       }
       return _countryList;
     } else {
-      return throw Exception('Failed to load countries.');
+      return _countryList;
     }
   }
 
@@ -39,7 +40,7 @@ class CountryListRepo {
       }
       return _countryList;
     } else {
-      throw Exception('Failed to load countries.');
+      return _countryList;
     }
   }
 }
