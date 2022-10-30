@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../controller/country_list_controller.dart';
+import '../../locales/locale_constant.dart';
 import '../../utils/asset_helper.dart';
 import '../../utils/color_constant.dart';
 
@@ -55,7 +56,7 @@ class CountryListPage extends GetView<CountryListController> {
             ),
           ),
           Text(
-            '# Country List',
+            '# '+ StringsConstant.appName,
             style: TextStyle(
                 fontSize: 15.sp,
                 color: Colors.black,
@@ -95,7 +96,7 @@ class CountryListPage extends GetView<CountryListController> {
           ),
           border:
               UnderlineInputBorder(borderRadius: BorderRadius.circular(15.0)),
-          hintText: 'Search Country...',
+          hintText: StringsConstant.searchCountry,
         ),
       ),
     );

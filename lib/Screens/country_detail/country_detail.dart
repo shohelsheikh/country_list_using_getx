@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../locales/locale_constant.dart';
 import '../../utils/asset_helper.dart';
 import '../../utils/color_constant.dart';
 import '../../widgets/all_text_view.dart';
@@ -91,7 +92,7 @@ class CountryDetailPage extends GetView<CountryListController> {
           ),
           marginTop(),
           AllCommonTextView(
-            "Official Name:",
+            StringsConstant.officialName,
             Get.find<CountryListController>()
                     .countryListNew[
                         Get.find<CountryListController>().clickIndex.value]
@@ -104,7 +105,7 @@ class CountryDetailPage extends GetView<CountryListController> {
           ),
           marginTop(),
           AllCommonTextView(
-            "Capital:",
+            StringsConstant.capital,
             Get.find<CountryListController>()
                     .countryListNew[
                         Get.find<CountryListController>().clickIndex.value]
@@ -116,7 +117,7 @@ class CountryDetailPage extends GetView<CountryListController> {
           ),
           marginTop(),
           AllCommonTextView(
-            "Continent:",
+            StringsConstant.continent,
             Get.find<CountryListController>()
                     .countryListNew[
                         Get.find<CountryListController>().clickIndex.value]
@@ -128,7 +129,7 @@ class CountryDetailPage extends GetView<CountryListController> {
           ),
           marginTop(),
           AllCommonTextView(
-            "Population:",
+            StringsConstant.population,
             Get.find<CountryListController>()
                     .countryListNew[
                         Get.find<CountryListController>().clickIndex.value]
@@ -141,7 +142,7 @@ class CountryDetailPage extends GetView<CountryListController> {
           ),
           marginTop(),
           AllCommonTextView(
-            "Region:",
+            StringsConstant.region,
             Get.find<CountryListController>()
                     .countryListNew[
                         Get.find<CountryListController>().clickIndex.value]
@@ -153,7 +154,7 @@ class CountryDetailPage extends GetView<CountryListController> {
           ),
           marginTop(),
           AllCommonTextView(
-            "Sub Region:",
+            StringsConstant.subRegion,
             Get.find<CountryListController>()
                     .countryListNew[
                         Get.find<CountryListController>().clickIndex.value]
@@ -165,7 +166,7 @@ class CountryDetailPage extends GetView<CountryListController> {
           ),
           marginTop(),
           AllCommonTextView(
-            "Area:",
+            StringsConstant.area,
             '${areaFormat.format(Get.find<CountryListController>().countryListNew[Get.find<CountryListController>().clickIndex.value].area ?? "")} km\u{00B2}',
             Icon(
               Icons.area_chart,

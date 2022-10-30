@@ -8,6 +8,7 @@ import 'package:sizer/sizer.dart';
 
 import 'Screens/splash_page.dart';
 import 'base/controller/hive_db_controller.dart';
+import 'locales/locale_constant.dart';
 
 GlobalKey<NavigatorState> globalKey = GlobalKey();
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
    // for responsive app we have used sizer.
     return Sizer(builder: (context, orientation, deviceType) {
       return GetMaterialApp(
+          title: StringsConstant.appName,
           navigatorKey: globalKey,
           debugShowCheckedModeBanner: false,
           getPages: AppPages.pages,
