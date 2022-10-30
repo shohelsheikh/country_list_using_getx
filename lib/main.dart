@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:sizer/sizer.dart';
 
+import 'Screens/splash_page.dart';
 import 'base/controller/hive_db_controller.dart';
 
 GlobalKey<NavigatorState> globalKey = GlobalKey();
@@ -26,8 +27,8 @@ class MyApp extends StatelessWidget {
       return GetMaterialApp(
           navigatorKey: globalKey,
           debugShowCheckedModeBanner: false,
-          initialRoute: AppRoutes.SPLASH_SCREEN,
           getPages: AppPages.pages,
+          home: new SplashPage(),
           defaultTransition: Transition.rightToLeft);
     });
   }

@@ -8,7 +8,7 @@ import 'package:sizer/sizer.dart';
 import '../routes/app_routes.dart';
 import '../widgets/button/app_button.dart';
 
-class SplashPage extends StatefulWidget {
+  class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
 
   @override

@@ -47,20 +47,22 @@ class CountryDetailPage extends GetView<CountryListController> {
               ),
             ),
           ),
-          Text(
-            Get.find<CountryListController>()
-                    .countryListNew[
-                        Get.find<CountryListController>().clickIndex.value]
-                    .name
-                    ?.common ??
-                "",
-            style: TextStyle(
-                fontSize: 15.sp,
-                color: Colors.black,
-                fontWeight: FontWeight.bold),
+          Expanded(
+            child: Text(
+              Get.find<CountryListController>()
+                      .countryListNew[
+                          Get.find<CountryListController>().clickIndex.value]
+                      .name
+                      ?.common ??
+                  "NA",
+              style: TextStyle(
+                  fontSize: 13.sp,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
           SizedBox(
-            width: 16,
+            width: 5,
           ),
         ],
       ),
@@ -95,7 +97,7 @@ class CountryDetailPage extends GetView<CountryListController> {
                         Get.find<CountryListController>().clickIndex.value]
                     .name
                     ?.official ??
-                "",
+                "NA",
             Icon(
               Icons.home,
             ),
@@ -107,7 +109,7 @@ class CountryDetailPage extends GetView<CountryListController> {
                     .countryListNew[
                         Get.find<CountryListController>().clickIndex.value]
                     .capital ??
-                "",
+                "NA",
             Icon(
               Icons.flag,
             ),
@@ -119,7 +121,7 @@ class CountryDetailPage extends GetView<CountryListController> {
                     .countryListNew[
                         Get.find<CountryListController>().clickIndex.value]
                     .continents ??
-                "",
+                "NA",
             Icon(
               Icons.flag,
             ),
@@ -132,7 +134,7 @@ class CountryDetailPage extends GetView<CountryListController> {
                         Get.find<CountryListController>().clickIndex.value]
                     .population
                     .toString() ??
-                "",
+                "NA",
             Icon(
               Icons.people,
             ),
@@ -144,7 +146,7 @@ class CountryDetailPage extends GetView<CountryListController> {
                     .countryListNew[
                         Get.find<CountryListController>().clickIndex.value]
                     .region ??
-                "",
+                "NA",
             Icon(
               Icons.people,
             ),
@@ -156,7 +158,7 @@ class CountryDetailPage extends GetView<CountryListController> {
                     .countryListNew[
                         Get.find<CountryListController>().clickIndex.value]
                     .subregion ??
-                "",
+                "NA",
             Icon(
               Icons.people,
             ),
